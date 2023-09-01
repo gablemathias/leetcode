@@ -41,6 +41,9 @@ each iteraction. Making the program slower
 # Space complexity:
 # O(1)
 
+# Runtime: 65 ms
+# Memory Usage: 211 MB
+
 def my_atoi(s)
   result = 0
   idx = 0
