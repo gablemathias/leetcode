@@ -24,7 +24,7 @@ p can_construct("aab", "baa")
 # Hash using ASCII values
 
 def can_construct_ascii(ransom_note, magazine)
-  alphas = Array(26, 0) # english lowercase alphabet
+  alphas = Array.new(26, 0) # english lowercase alphabet
   a_ordinal = 'a'.ord
 
   magazine.each_char { |c| alphas[c.ord - a_ordinal] += 1 } # increment frequency, ord return ordinal integer char
