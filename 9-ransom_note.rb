@@ -25,10 +25,20 @@ p can_construct("aab", "baa")
 
 def can_construct_ascii(ransom_note, magazine)
   alphas = Array(26, 0) # english lowercase alphabet
+  a_ordinal = 'a'.ord
 
-  magazine.each_char { |c| alphas[c.ord - 'a'.ord] += 1 } # increment frequency, ord return ordinal integer char
+  magazine.each_char { |c| alphas[c.ord - a_ordinal] += 1 } # increment frequency, ord return ordinal integer char
 
   ransom_note.each_char do |char|
-    return false if alphas[char.ord - 'a'.ord] == 0
+    return false if alphas[char.ord - a_ordinal] == 0
 
+    alphas[char.ord - a_ordinal] -= 1 # decrement whenever match found
+  end
+
+  return true
 end
+
+p can_construct_ascii("aa","ab")
+p can_construct_ascii("aa","aab")
+p can_construct_ascii("a","b")
+p can_construct_ascii("aab", "baa")
