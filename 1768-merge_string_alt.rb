@@ -4,6 +4,25 @@
 # If a string is longer than the other, 
 # append the additional letters onto the end of the merged string.
 
+# Time Complexity: O(N)
+# Runtime: 67 ms
+# Memory: 211 mb
+
+def merge_alternately(word1, word2)
+  result = ""
+  
+  (word1.length + word2.length).times do |i|
+    result += word1[i] if word1[i]
+    result += word2[i] if word2[i]
+  end
+  
+  result
+end
+
+p merge_alternately("abcd","xyz") # apbqcd
+p merge_alternately("abc","pqr") # apbqcr
+p merge_alternately("ab","pqrs") # apbqrs
+
 # Input:
 # word1 - String
 # word2 - String 
@@ -51,23 +70,28 @@
 
 # Code
 
-def merge_alternately(word1, word2)
-  shortest_word = word1.length <= word2.length ? word1 : word2
-  merged_word = ""
+# def merge_alternately(word1, word2)
+#   shortest_word = word1.length <= word2.length ? word1 : word2
+#   merged_word = ""
   
-  shortest_word.length.times do |i|
-    merged_word += word1[i] + word2[i]
-  end
+#   shortest_word.length.times do |i|
+#     merged_word += word1[i] + word2[i]
+#   end
   
-  if shortest_word == word1 && word1.length != word2.length
-    merged_word += word2[(shortest_word.length)..]
-  elsif shortest_word == word2
-    merged_word += word1[(shortest_word.length)..]
-  end
+#   if shortest_word == word1 && word1.length != word2.length
+#     merged_word += word2[(shortest_word.length)..]
+#   elsif shortest_word == word2
+#     merged_word += word1[(shortest_word.length)..]
+#   end
   
-  merged_word
-end 
+#   merged_word
+# end 
 
-p merge_alternately("abcd","xyz") # apbqcd
-p merge_alternately("abc","pqr") # apbqcr
-p merge_alternately("ab","pqrs") # apbqrs
+# p merge_alternately("abcd","xyz") # apbqcd
+# p merge_alternately("abc","pqr") # apbqcr
+# p merge_alternately("ab","pqrs") # apbqrs
+
+# Determine the total length of the string
+# keep adding the values to the new string until the size 
+# is fulfilled
+# return the resulting string
