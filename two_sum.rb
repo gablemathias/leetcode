@@ -4,7 +4,7 @@
 def two_sum(nums, target)
   result = [] 
   nums.each_with_index do |n, i|
-    nums[i+1..].each_with_index do |n2, i2|
+    nums[i+1..].each do |n2|
       if (n + n2) == target
         nums[i] = nil
         result.append(i, nums.index(n2)) 
@@ -52,6 +52,33 @@ end
 # Loop through the array less the element being used
 # If the target value if found, appent to the result empty array
 # return the result array containing the indices
+
+# p two_sum([2,7,11,15], 9)
+# p two_sum([3,2,4], 6)
+# p two_sum([3,3], 6)
+
+
+# Data Structure using the Hash table
+# Create a hash with the array
+# Check if the current element minus the target value exists in the hash
+# if exists, return the index value of the element, and the found element
+# else, change the current element and check again
+
+def two_sum(arr, target)
+  hash_table = {}
+  result = []
+  arr.each_with_index { |k, i| hash_table[k] = i }
+  
+  arr.each_with_index do |v, i|
+    current = target - v
+    if hash_table[current] && (hash_table[current] != i)
+      result.append(i, hash_table[current])
+      break
+    end
+  end
+  
+  result
+end
 
 p two_sum([2,7,11,15], 9)
 p two_sum([3,2,4], 6)
