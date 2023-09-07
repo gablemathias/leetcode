@@ -66,18 +66,14 @@ end
 
 def two_sum(arr, target)
   hash_table = {}
-  result = []
   arr.each_with_index { |k, i| hash_table[k] = i }
   
   arr.each_with_index do |v, i|
     current = target - v
     if hash_table[current] && (hash_table[current] != i)
-      result.append(i, hash_table[current])
-      break
+      return [i, hash_table[current]]
     end
   end
-  
-  result
 end
 
 p two_sum([2,7,11,15], 9)
