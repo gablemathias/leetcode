@@ -32,6 +32,9 @@
 # -> if it's, true. else false.
 # 5. return the resulting boolean array
 
+# Time Complexity: O(N), Space Complexity O(1)
+# Runtime 58ms, Memory: 211.23mb
+
 def kids_with_candies(candies, extra_candies)
   max = 0 # Instead of the each, we can also use the MAX method to find it.
 
