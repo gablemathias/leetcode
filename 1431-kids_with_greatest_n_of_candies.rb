@@ -41,7 +41,21 @@ def kids_with_candies(candies, extra_candies)
     end
   end
 
-  candies.map { |target| target+extra_candies >= max } # create an boolean array
+  candies.map { |target| target+extra_candies >= max } # create a boolean array
 end
 
-p kids_with_candies([2,3,5,1,3], 3)
+# Test-cases
+
+RSpec.describe 'Check kids with the greatest number of candies' do
+  it 'It has more candies than the others after receiving the extra candies' do
+    expect(kids_with_candies([2,3,5,1,3], 3)).to eq([true,true,true,false,true])
+  end
+
+  it 'Has the same number of candies as the greatest one' do
+    expect(kids_with_candies([1,8], 7)).to eq([true,true])
+  end
+
+  it 'Doens\'t has sufficient candies as the greatest one' do
+    expect(kids_with_candies([4,2,1,1,2], 1)).to eq([true,false,false,false,false])
+  end
+end
